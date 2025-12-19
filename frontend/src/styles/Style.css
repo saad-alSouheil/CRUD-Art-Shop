@@ -1,0 +1,87 @@
+.app {
+  padding: 20px 100px;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+  
+
+  .paintings {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+
+      button {
+        padding: 3px 6px;
+        background-color: white;
+        cursor: pointer;
+      }
+       .delete {
+        border: 1px solid rgb(245, 191, 191);
+        color: rgb(242, 100, 100);
+      }
+      .update {
+        border: 1px solid rgb(204, 204, 243);
+        color: rgb(139, 139, 234);
+      }
+
+      table {
+      width: 100%; 
+      border-collapse: collapse; 
+      margin: 20px 0; 
+      font-family: Verdana, Geneva, Tahoma, sans-serif; 
+
+}
+
+th {
+  background-color: rgb(128, 23, 0); 
+  color: white; 
+  padding: 10px; 
+  text-align: center; 
+  border: 1px solid #ddd; 
+}
+
+td {
+  padding: 10px ; 
+  border: 1px solid #ddd; 
+}
+
+tr:nth-child(even) {
+  background-color: #f9adad; 
+}
+
+tr:hover {
+  background-color: #f86464; 
+}
+    }
+
+  .form {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    input {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid rgb(254, 4, 4);
+      border-radius: 10px;
+    }
+
+    textarea {
+      padding: 10px;
+    }
+
+    button {
+      border: none;
+      border-radius: 10px;
+      padding: 10px;
+      background-color: rgb(217, 23, 23);
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+    }
+   
+  }
+
