@@ -1,15 +1,23 @@
 import React from "react";
-import { Outlet } from "react-router-dom";
-import {Navigate} from "react-router-dom";
-import Nav from "./Nav";
+import {Outlet} from "react-router-dom";
+import {Link} from "react-router-dom";
 import "../styles/NavBar.css";
 
 export default function ClientSide(){
 
     return(
-        <>
-        <Nav/>
-        <Outlet />
-        </>
+        <div>
+
+            <nav className="navbar">
+                <Link to="/" className="nav-link">Home</Link>
+                <Link to="/paintings" className="nav-link">Paintings</Link>
+                <Link to="/about" className="nav-link">About</Link>
+            </nav>
+
+            <main>
+                <Outlet/>
+            </main>
+
+        </div>
     );
 }

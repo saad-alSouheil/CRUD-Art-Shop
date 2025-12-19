@@ -11,7 +11,6 @@ export default function UpdatePainting() {
   const [file, setFile] = useState(null);
   const [error, setError] = useState(false);
 
-  // Load Current Painting
   useEffect(() => {
     axios
       .get(`http://localhost:5000/search/${id}`)
@@ -28,7 +27,7 @@ export default function UpdatePainting() {
     const formData = new FormData();
     formData.append("name", name);
     formData.append("price", price);
-    formData.append("image", file); // backend requires image again
+    formData.append("image", file); 
 
     try {
       await axios.post(`http://localhost:5000/modify/${id}`, formData);

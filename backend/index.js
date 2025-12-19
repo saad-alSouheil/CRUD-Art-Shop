@@ -30,7 +30,7 @@ const db = mysql.createConnection({
   host: "localhost",
   user: "root",
   password: "",
-  database: "painting",
+  database: "artShop",
 });
 
 app.get("/paintings", (req, res) => {
@@ -46,7 +46,7 @@ app.get("/paintings", (req, res) => {
         if (d.picture && fs.existsSync(path.join("pictures", d.picture))) {
           d.picture = fs.readFileSync(path.join("pictures", d.picture)).toString("base64");
         } else {
-          d.picture = null; // no image available
+          d.picture = null; 
         }
       } catch (fileErr) {
         console.error("Image read error:", fileErr);
@@ -101,10 +101,9 @@ app.post("/modify/:id", upload.single('image'),(req, res) => {
    const name =  req.body.name;
    const price=  req.body.price;
    const image = req.file.filename;
-//console.log(major);
-//console.log(image);
-const q = "UPDATE paintings SET `name`= ?, `price`= ?, `picture`= ? WHERE pId = ?";  
-db.query(q, [name,price,image,id], (err, data) => {
+
+   const q = "UPDATE paintings SET `name`= ?, `price`= ?, `picture`= ? WHERE pId = ?";  
+   db.query(q, [name,price,image,id], (err, data) => {
     if (err) return res.send(err);
     return res.json(data);
   });
@@ -119,11 +118,10 @@ app.get("/search/:id", (req, res) => {
   });
 });
 
-// SIMPLE login
 app.post("/api/login", (req, res) => {
     const { username, password } = req.body;
 
-    const query = "SELECT * FROM users WHERE username = ? AND password = ?";
+    const query = "SELECT * FROM admin WHERE username = ? AND password = ?";
     
     db.query(query, [username, password], (err, results) => {
         if (err) {
@@ -135,7 +133,6 @@ app.post("/api/login", (req, res) => {
             return res.json({ success: false, message: "Invalid credentials" });
         }
 
-        // Login successful
         const user = results[0];
         res.json({
             success: true,
