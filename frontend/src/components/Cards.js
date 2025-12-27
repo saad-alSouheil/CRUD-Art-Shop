@@ -2,13 +2,13 @@ export default function PaintingCard({ name, price, image }) {
   return (
     <div style={styles.card}>
       <img 
-        src={image ? `data:image/jpeg;base64,${image}` : '/placeholder-image.jpg'} 
+        src={image? `http://localhost:5000/pictures/${image}` : '/placeholder-image.jpg'}
         alt={name}
         style={styles.image}
       />
       <h3 style={styles.title}>{name}</h3>
       <p style={styles.price}>${price}</p>
-
+    
       <button 
         style={{ 
           margin: '5px', 

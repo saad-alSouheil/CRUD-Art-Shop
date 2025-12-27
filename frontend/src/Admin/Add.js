@@ -7,6 +7,7 @@ export default function AddPainting() {
   const [painting, setPainting] = useState({
     name: "",
     price: "",
+    description:"",
   });
 
   const [file, setFile] = useState(null);
@@ -29,6 +30,7 @@ export default function AddPainting() {
     formData.append("name", painting.name);
     formData.append("price", painting.price);
     formData.append("image", file);
+    formData.append("description", painting.description);
 
     try {
       await axios.post("http://localhost:5000/create", formData);
@@ -48,6 +50,13 @@ export default function AddPainting() {
           type="text"
           name="name"
           placeholder="Painting Name"
+          onChange={handleChange}
+        />
+
+        <textarea
+          type="text"
+          name="description"
+          placeholder="Description"
           onChange={handleChange}
         />
 

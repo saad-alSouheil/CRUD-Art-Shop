@@ -8,7 +8,7 @@ import fs from "fs";
 const app = express();
 app.use(cors());
 app.use(express.json());
-
+app.use('/pictures', express.static('pictures'));
 app.use(express.static('public'));
 
 const storage = multer.diskStorage({
@@ -40,20 +40,6 @@ app.get("/paintings", (req, res) => {
       console.error("DB error:", err);
       return res.status(500).json({ error: "Database error" });
     }
-
-    for (const d of data) {
-      try {
-        if (d.picture && fs.existsSync(path.join("pictures", d.picture))) {
-          d.picture = fs.readFileSync(path.join("pictures", d.picture)).toString("base64");
-        } else {
-          d.picture = null; 
-        }
-      } catch (fileErr) {
-        console.error("Image read error:", fileErr);
-        d.picture = null;
-      }
-    }
-
     return res.json(data);
   });
 });
@@ -63,10 +49,11 @@ app.post("/create", upload.single('image'), (req, res) => {
   const name = req.body.name;
   const price = req.body.price;
   const image = req.file.filename;
+  const description = req.body.description;
 
-  const q = "INSERT INTO paintings(`name`, `price`, `picture`) VALUES (?,?,?)";
+  const q = "INSERT INTO paintings(`name`, `price`, `picture`, `description`) VALUES (?,?,?,?)";
 
-  db.query(q, [name,price,image], (err, data) => {
+  db.query(q, [name,price,image,description], (err, data) => {
     if (err) return res.send(err);
     return res.json(data);
   });
@@ -101,9 +88,10 @@ app.post("/modify/:id", upload.single('image'),(req, res) => {
    const name =  req.body.name;
    const price=  req.body.price;
    const image = req.file.filename;
+   const description = req.body.description;
 
-   const q = "UPDATE paintings SET `name`= ?, `price`= ?, `picture`= ? WHERE pId = ?";  
-   db.query(q, [name,price,image,id], (err, data) => {
+   const q = "UPDATE paintings SET `name`= ?, `price`= ?, `picture`= ?, `description`= ?  WHERE pId = ?";  
+   db.query(q, [name,price,image,description,id], (err, data) => {
     if (err) return res.send(err);
     return res.json(data);
   });

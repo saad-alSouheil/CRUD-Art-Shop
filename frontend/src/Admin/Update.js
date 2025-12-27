@@ -7,6 +7,7 @@ export default function UpdatePainting() {
   const navigate = useNavigate();
 
   const [name, setName] = useState("");
+  const [description,setDescription] = useState("");
   const [price, setPrice] = useState("");
   const [file, setFile] = useState(null);
   const [error, setError] = useState(false);
@@ -16,6 +17,7 @@ export default function UpdatePainting() {
       .get(`http://localhost:5000/search/${id}`)
       .then((res) => {
         setName(res.data[0].name);
+        setDescription(res.data[0].description)
         setPrice(res.data[0].price);
       })
       .catch((err) => console.log(err));
@@ -26,6 +28,7 @@ export default function UpdatePainting() {
 
     const formData = new FormData();
     formData.append("name", name);
+    formData.append("description", description);
     formData.append("price", price);
     formData.append("image", file); 
 
@@ -50,6 +53,13 @@ export default function UpdatePainting() {
           onChange={(e) => setName(e.target.value)}
         />
 
+        <textarea
+          type="text"
+          value={description}
+          placeholder="Description"
+          onChange={(e) => setDescription(e.target.value)}
+        />
+        
         <input
           type="number"
           value={price}

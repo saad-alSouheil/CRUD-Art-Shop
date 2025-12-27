@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import PaintingCard from "../components/Cards";
+import PaintingDetails from "../components/PaintingDetails"
 
 export default function Paintings() {
   const [paintings, setPaintings] = useState([]);
+  const [selectedPainting, setSelectedPainting] = useState(null);
 
   useEffect(() => {
     const fetchAllPaintings = async () => {
@@ -22,18 +24,29 @@ export default function Paintings() {
     fetchAllPaintings();
   }, []);
 
-  if (!Array.isArray(paintings)) return <p>Loading...</p>;
-
   return (
     <div style={styles.container}>
       {paintings.map((p, index) => (
-        <PaintingCard
+        <div
           key={p.pId || index}
-          name={p.name}
-          price={p.price}
-          image={p.picture} 
-        />
+          onClick={() => setSelectedPainting(p)}
+          style={{cursor: "pointer"}}
+        >
+          <PaintingCard
+            name={p.name}
+            price={p.price}
+            description={p.description}
+            image={p.picture}
+          />
+        </div>
       ))}
+
+      {selectedPainting && (
+        <PaintingDetails
+          painting = {selectedPainting}
+          onClose={() => setSelectedPainting(null)}
+        />
+      )}
       
     </div>
   );

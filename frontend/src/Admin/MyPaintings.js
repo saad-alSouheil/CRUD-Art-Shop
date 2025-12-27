@@ -35,9 +35,10 @@ const MyPaintings = () => {
           <table border="1" width="100%" style={{ borderCollapse: 'collapse' }}>
             <thead>
               <tr style={{ backgroundColor: '#f2f2f2' }}>
+                <th style={{ padding: '10px' }}>Picture</th>
                 <th style={{ padding: '10px' }}>Painting Name</th>
                 <th style={{ padding: '10px' }}>Price</th>
-                <th style={{ padding: '10px' }}>Picture</th>
+                <th style={{ padding: '10px' }}>Description</th>
                 <th style={{ padding: '10px' }}>Actions</th>
               </tr>
             </thead>
@@ -45,12 +46,10 @@ const MyPaintings = () => {
             <tbody>
               {paintings.map((painting) => (
                 <tr key={painting.pId}>
-                  <td style={{ padding: '10px' }}>{painting.name}</td>
-                  <td style={{ padding: '10px', textAlign: 'center' }}>${painting.price}</td>
                   <td style={{ padding: '10px', textAlign: 'center' }}>
                     {painting.picture ? (
                       <img
-                        src={`data:image/jpeg;base64,${painting.picture}`}
+                        src={`http://localhost:5000/pictures/${painting.picture}`}
                         alt={painting.name}
                         style={{ 
                           width: "100px", 
@@ -64,6 +63,9 @@ const MyPaintings = () => {
                       <span style={{ color: '#999' }}>No image</span>
                     )}
                   </td>
+                  <td style={{ padding: '10px' }}>{painting.name}</td>
+                  <td style={{ padding: '10px', textAlign: 'center' }}>${painting.price}</td>
+                  <td style={{ padding: '10px' }}>{painting.description}</td>
                   <td style={{ padding: '10px', textAlign: 'center' }}>
                     <button 
                       className="delete" 
