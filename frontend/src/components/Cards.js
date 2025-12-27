@@ -1,4 +1,4 @@
-export default function PaintingCard({ name, price, image }) {
+export default function PaintingCard({ name, price, image, onBuy, sold }) {
   return (
     <div style={styles.card}>
       <img 
@@ -13,14 +13,16 @@ export default function PaintingCard({ name, price, image }) {
         style={{ 
           margin: '5px', 
           padding: '10px 15px',
-          backgroundColor: '#67dc35ff',
+          backgroundColor:sold? "gray" : '#67dc35ff',
           color: 'white',
           border: 'none',
           borderRadius: '4px',
-          cursor: 'pointer'
+          cursor: sold? 'not-allowed' : "pointer"
         }}
+        onClick={!sold? onBuy : null}
+        disabled={sold}
       >
-        Buy
+        {sold? "Sold" : "Buy"}
       </button>
     </div>
   );

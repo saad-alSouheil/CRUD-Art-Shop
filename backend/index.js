@@ -106,6 +106,7 @@ app.get("/search/:id", (req, res) => {
   });
 });
 
+//LOGIN
 app.post("/api/login", (req, res) => {
     const { username, password } = req.body;
 
@@ -132,6 +133,88 @@ app.post("/api/login", (req, res) => {
         });
     });
 });
+
+//BUY-REQUEST:
+app.post("/buy-request", (req, res) => {
+  const { painting_id, buyer_name, buyer_email, message } = req.body;
+
+  if (!painting_id || !buyer_name || !buyer_email) {
+    return res.status(400).json({ error: "Missing required fields" });
+  }
+  const q = `INSERT INTO buy_requests (painting_id, buyer_name, buyer_email, message) VALUES (?,?,?,?)`;
+
+  db.query(
+    q,
+    [painting_id, buyer_name, buyer_email, message],
+    (err, result) => {
+      if (err) {
+        console.error("Buy request error:", err);
+        return res.status(500).json({ error: "Database error" });
+      }
+
+      return res.json({
+        success: true,
+        message: "Buy request sent successfully",
+      });
+    }
+  );
+});
+
+app.get("/buy-requests", (req, res) => {
+  const q = `
+    SELECT 
+      br.id,
+      br.buyer_name,
+      br.buyer_email,
+      br.message,
+      br.status,
+      br.created_at,
+      p.name AS painting_name,
+      p.price
+    FROM buy_requests br
+    JOIN paintings p ON br.painting_id = p.pId
+    ORDER BY br.created_at DESC
+  `;
+
+  db.query(q, (err, data) => {
+    if (err) {
+      console.error(err);
+      return res.status(500).json(err);
+    }
+    res.json(data);
+  });
+});
+
+app.put("/buy-request/:id", (req, res) => {
+  const id = req.params.id;
+  const { status } = req.body;
+
+  const updateRequest =
+    "UPDATE buy_requests SET status = ? WHERE id = ?";
+
+  db.query(updateRequest, [status, id], (err) => {
+    if (err) return res.status(500).json(err);
+
+    // If approved => mark painting as sold
+    if (status === "approved") {
+      const markSold = `
+        UPDATE paintings 
+        SET sold = 1 
+        WHERE pId = (
+          SELECT painting_id FROM buy_requests WHERE id = ?
+        )
+      `;
+
+      db.query(markSold, [id], (err2) => {
+        if (err2) return res.status(500).json(err2);
+        return res.json({ success: true });
+      });
+    } else {
+      return res.json({ success: true });
+    }
+  });
+});
+
 
 
 app.listen(5000, () => {

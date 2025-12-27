@@ -11,6 +11,7 @@ import AdminDashboard from "./Admin/AdminDashboard";
 import MyPaintings from "./Admin/MyPaintings";
 import AddPainting from "./Admin/Add";
 import Update from "./Admin/Update";
+import Requests from "./Admin/Requests";
 
 import Login from "./components/Login";
 import Footer from "./components/Footer";
@@ -34,6 +35,7 @@ function App() {
           <Route path="/myPaintings" element={<MyPaintings />} />
           <Route path="/add" element={<AddPainting />} />
           <Route path="/update/:id" element={<Update/>} />
+          <Route path="/requests" element={<Requests/>}/>
         </Route>
         
       </Routes>

@@ -1,10 +1,10 @@
-import "../styles/PaintingDetails.css";
+import "../styles/PopUp.css";
 
 export default function PaintingDetails({painting, onClose}) {
   return (
     <div className="modal-overlay" onClick={onClose}>
       <div
-        className="modal-content"
+        className="modal-content-details"
         onClick={(e) => e.stopPropagation()}
       >
         <button className="close-btn" onClick={onClose}>
@@ -20,7 +20,7 @@ export default function PaintingDetails({painting, onClose}) {
         <h2>{painting.name}</h2>
 
         <p>{painting.description}</p>
-        
+
         {painting.price && <p><strong>Price:</strong> ${painting.price}</p>}
       </div>
     </div>

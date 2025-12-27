@@ -2,10 +2,12 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import PaintingCard from "../components/Cards";
 import PaintingDetails from "../components/PaintingDetails"
+import BuyRequest from "../components/BuyRequest";
 
 export default function Paintings() {
   const [paintings, setPaintings] = useState([]);
   const [selectedPainting, setSelectedPainting] = useState(null);
+  const [buyPainting, setBuyPainting] = useState(null);
 
   useEffect(() => {
     const fetchAllPaintings = async () => {
@@ -37,6 +39,11 @@ export default function Paintings() {
             price={p.price}
             description={p.description}
             image={p.picture}
+            sold={p.sold}
+            onBuy={(e) => {
+              e.stopPropagation();
+              setBuyPainting(p);
+            }}
           />
         </div>
       ))}
@@ -45,6 +52,13 @@ export default function Paintings() {
         <PaintingDetails
           painting = {selectedPainting}
           onClose={() => setSelectedPainting(null)}
+        />
+      )}
+
+      {buyPainting && (
+        <BuyRequest
+          painting={buyPainting}
+          onClose={() => setBuyPainting(null)}
         />
       )}
       
