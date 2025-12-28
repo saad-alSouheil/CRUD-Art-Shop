@@ -215,7 +215,66 @@ app.put("/buy-request/:id", (req, res) => {
   });
 });
 
+//Commissions: 
+app.post("/commission-request", (req, res) => {
+  const { id, client_name, client_email, message, medium } = req.body;
 
+  if (!client_name || !client_email || !medium || !message) {
+    return res.status(400).json({ error: "Missing required fields" });
+  }
+  const q = `INSERT INTO commission_requests (id, client_name, client_email, message, medium) VALUES (?,?,?,?,?)`;
+
+  db.query(
+    q,
+    [id, client_name, client_email, message, medium],
+    (err, result) => {
+      if (err) {
+        console.error("Commission request error:", err);
+        return res.status(500).json({ error: "Database error" });
+      }
+
+      return res.json({
+        success: true,
+        message: "Commission request sent successfully",
+      });
+    }
+  );
+});
+
+app.get("/commission-requests", (req, res) => {
+  const q = `
+    SELECT 
+      id,
+      client_name,
+      client_email,
+      message,
+      medium,
+      status,
+      created_at
+    FROM commission_requests
+    ORDER BY created_at DESC
+  `;
+
+  db.query(q, (err, data) => {
+    if (err) {
+      console.error(err);
+      return res.status(500).json(err);
+    }
+    res.json(data);
+  });
+});
+
+app.put("/commission-request/:id", (req, res) => {
+  const id = req.params.id;
+  const { status } = req.body;
+
+  const q = "UPDATE commission_requests SET status = ? WHERE id = ?";
+
+  db.query(q, [status, id], (err) => {
+    if (err) return res.status(500).json(err);
+      return res.json({ success: true });
+    });
+});
 
 app.listen(5000, () => {
   console.log("Connected to backend.");

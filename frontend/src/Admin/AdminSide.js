@@ -18,7 +18,8 @@ export default function AdminLayout() {
         <Link to="/adminDashboard" className="nav-link">Dashboard</Link>
         <Link to="/myPaintings" className="nav-link">My Paintings</Link>
         <Link to="/add" className="nav-link">Add Paintings</Link>
-        <Link to="/requests" className="nav-link">Requests</Link>
+        <Link to="/buyRequests" className="nav-link">Buy Requests</Link>
+        <Link to="/comRequests" className="nav-link">Commission Requests</Link>
         <button onClick={handleLogout} className="logout-btn"> Logout </button>
         </div>
       </nav>

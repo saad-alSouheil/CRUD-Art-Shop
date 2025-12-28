@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 
-export default function Requests() {
+export default function BRequests() {
   const [requests, setRequests] = useState([]);
 
   useEffect(() => {
