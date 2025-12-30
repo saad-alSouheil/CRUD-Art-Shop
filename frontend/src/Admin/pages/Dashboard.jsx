@@ -1,5 +1,7 @@
 import React from 'react'
 import Widget from '../components/Widget'
+import Chart from '../components/Chart';
+import Reviews from '../components/Reviews';
 import "../styles/Dashboard.scss";
 
 const Dashboard = () => {
@@ -10,7 +12,12 @@ const Dashboard = () => {
                 <Widget type="sales"/>
                 <Widget type="commissions"/>
             </div>
+
+            <div className="charts">
+                <Chart/>
+                <Reviews/>
             </div>
+        </div>
     )
 }
 
