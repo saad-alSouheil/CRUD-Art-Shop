@@ -2,6 +2,7 @@ import React from 'react'
 import Widget from '../components/Widget'
 import Chart from '../components/Chart';
 import Reviews from '../components/Reviews';
+import Table from '../components/Table';
 import "../styles/Dashboard.scss";
 
 const Dashboard = () => {
@@ -16,6 +17,10 @@ const Dashboard = () => {
             <div className="charts">
                 <Chart/>
                 <Reviews/>
+            </div>
+            <div className="tableContainer">
+                <div className="tableTitle">Recent Buy Requests</div>
+                <Table/>
             </div>
         </div>
     )

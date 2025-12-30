@@ -170,7 +170,8 @@ app.get("/buy-requests", (req, res) => {
       br.status,
       br.created_at,
       p.name AS painting_name,
-      p.price
+      p.price,
+      p.picture
     FROM buy_requests br
     JOIN paintings p ON br.painting_id = p.pId
     ORDER BY br.created_at DESC
