@@ -7,8 +7,8 @@ import About from "./Client/About";
 import Paintings from "./Client/Paintings";
 import Commission from "./Client/Commission";
 
-import AdminLayout from "./Admin/AdminSide";
-import AdminDashboard from "./Admin/AdminDashboard";
+import AdminLayout from "./Admin/pages/AdminLayout";
+import AdminDashboard from "./Admin/pages/Dashboard";
 import MyPaintings from "./Admin/MyPaintings";
 import AddPainting from "./Admin/Add";
 import Update from "./Admin/Update";
