@@ -1,0 +1,66 @@
+.formContainer{
+    max-width: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 2rem auto;
+    padding: 2rem;
+    background: #fff;
+    border-radius: 1rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+
+    .form{
+        width: 100%;
+        max-width: 500px;
+        padding: 25px;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+
+        h1{
+            margin-bottom: 10px;
+            text-align: center;
+            color: gray;
+        }
+
+        input, textarea{
+            padding: 10px 12px;
+            font-size: 15px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+
+            &:focus{
+                outline: none;
+                border-color: #6224d7;
+            }
+        }
+
+        textarea{
+            resize: vertical;
+            min-height: 80px;
+        }
+
+        input[type="file"]{
+            border: none;
+            padding-left: 0;
+        }
+
+        button{
+            display: block;
+            margin: 1rem auto 0;
+            padding: 10px;
+            background-color: #a184d8;
+            color: white;
+            font-size: 15px;
+            font-weight: 500;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+
+            &:hover{
+                background-color: #d184d8;
+            }
+        }
+    }
+
+}

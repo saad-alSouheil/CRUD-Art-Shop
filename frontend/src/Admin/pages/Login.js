@@ -1,5 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
+import "../styles/Form.scss";
 
 export default function Login() {
   const [username, setUsername] = useState("");
@@ -31,58 +32,26 @@ export default function Login() {
   };
 
   return (
-    <div style={{
-      maxWidth: "300px",
-      margin: "100px auto",
-      padding: "20px",
-      border: "1px solid #ddd",
-      borderRadius: "8px",
-    }}>
-      <h2 style={{ textAlign: "center", marginBottom: "20px" }}>Login</h2>
-      <form onSubmit={handleLogin}>
+    <div className="formContainer" >
+      <div className="form">
+        <h1 >Login</h1>
+        
         <input 
           type="text"
           placeholder="Username"
           onChange={(e) => setUsername(e.target.value)}
-          style={{
-            width: "100%",
-            padding: "10px",
-            marginBottom: "10px",
-            border: "1px solid #ccc",
-            borderRadius: "4px",
-            boxSizing: "border-box"
-          }}
         />
 
         <input 
           type="password"
           placeholder="Password"
           onChange={(e) => setPassword(e.target.value)}
-          style={{
-            width: "100%",
-            padding: "10px",
-            marginBottom: "20px",
-            border: "1px solid #ccc",
-            borderRadius: "4px",
-            boxSizing: "border-box"
-          }}
         />
 
-        <button 
-          type="submit"
-          style={{
-            width: "100%",
-            padding: "10px",
-            backgroundColor: "#ff6600ff",
-            color: "white",
-            border: "none",
-            borderRadius: "4px",
-            cursor: "pointer"
-          }}
-        >
-          Login
-        </button>
-      </form>
+        <button onClick={handleLogin}>Login</button>
+      
+      </div>
+      
       <p style={{
         textAlign: "center",
         marginTop: "15px",
@@ -91,6 +60,7 @@ export default function Login() {
       }}>
         {msg}
       </p>
+
     </div>
   );
 }

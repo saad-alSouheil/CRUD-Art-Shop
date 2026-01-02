@@ -56,7 +56,7 @@ function Widget({type}){
                 count: paintings.length,
                 isMoney: false,
                 link: <Link to="/mypaintings">See all paintings</Link>,
-                icon: <ColorLensIcon className="icon" style={{color:"white", backgroundColor:"#fbf134ff"}}/>
+                icon: <ColorLensIcon className="icon" style={{color:"white", backgroundColor:"#fbf1349b"}}/>
             };
             break;
         case "sales":
@@ -65,7 +65,7 @@ function Widget({type}){
                 count: sales(paintings),
                 isMoney: true,
                 link: "",
-                icon: <PaidIcon className="icon" style={{color:"white", backgroundColor:"#c4e0b8ff"}}/>
+                icon: <PaidIcon className="icon" style={{color:"white", backgroundColor:"#a1e982ad"}}/>
             };
             break;  
         case "commissions":
@@ -73,8 +73,8 @@ function Widget({type}){
                 title: "Total Commission Requests",
                 count: requests.length,
                 isMoney: false,
-                link: <Link to="/commission-requests">See all commissions</Link>,
-                icon: <DesignServicesIcon className="icon" style={{color:"white", backgroundColor:"#d89e9eff"}}/>
+                link: <Link to="/comRequests">See all commissions</Link>,
+                icon: <DesignServicesIcon className="icon" style={{color:"white", backgroundColor:"#f25d5dba"}}/>
             };
             break;
         default:

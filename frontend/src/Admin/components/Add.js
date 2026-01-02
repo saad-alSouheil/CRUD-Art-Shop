@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useState } from "react";
 import {useNavigate } from "react-router-dom";
-import "../styles/Style.css";
+import "../styles/Form.scss";
 
 export default function AddPainting() {
   const [painting, setPainting] = useState({
@@ -42,7 +42,7 @@ export default function AddPainting() {
   };
 
   return (
-    <div className="app">
+    <div className="formContainer">
       <div className="form">
         <h1>Add Painting</h1>
 

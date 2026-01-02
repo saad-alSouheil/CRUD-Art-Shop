@@ -2,7 +2,7 @@ import React from 'react'
 import Widget from '../components/Widget'
 import Chart from '../components/Chart';
 import Reviews from '../components/Reviews';
-import Table from '../components/Table';
+import BuyRequests from './BRequests';
 import "../styles/Dashboard.scss";
 
 const Dashboard = () => {
@@ -20,7 +20,7 @@ const Dashboard = () => {
             </div>
             <div className="tableContainer">
                 <div className="tableTitle">Recent Buy Requests</div>
-                <Table/>
+                <BuyRequests rows={4}/>
             </div>
         </div>
     )

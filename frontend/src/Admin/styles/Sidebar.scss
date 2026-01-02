@@ -9,11 +9,12 @@
         display: flex;
         align-items: center;
         justify-content: center;
+        background-color:#a184d8;
 
         .logo{
             font-size: 20px;
             font-weight: bold;
-            color: rgb(85, 0, 128);
+            color: rgb(255, 255, 255);
         }
     }
 
@@ -43,8 +44,8 @@
             }
 
             .icon{
-                font-size: 18px;
-                color: rgb(68, 0, 214);
+                font-size: 20px;
+                color: #a184d8;
             }
 
             span{
@@ -57,7 +58,7 @@
             }
 
             .title{
-                font-size: 10px;
+                font-size: 13px;
                 font-weight: bold;
                 color: #999;
                 margin-top: 15px;
@@ -66,26 +67,5 @@
         }
     }
 
-    .bottom{
-        display: flex;
-        align-items: center;
-        margin: 10px;
 
-        .colorOption{
-            width: 20px;
-            height: 20px;
-            border-radius: 5px;
-            border: 1px solid #7451f8;
-            margin: 5px;
-            cursor: pointer;
-
-            &:nth-child(1){
-                background-color: whitesmoke;
-            }
-
-            &:nth-child(2){
-                background-color: #333;
-            }
-        }
-    }
 }

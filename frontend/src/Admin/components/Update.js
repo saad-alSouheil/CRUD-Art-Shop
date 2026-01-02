@@ -2,6 +2,8 @@ import axios from "axios";
 import React, { useState, useEffect } from "react";
 import {useNavigate, useParams } from "react-router-dom";
 
+import '../styles/Form.scss';
+
 export default function UpdatePainting() {
   const { id } = useParams();
   const navigate = useNavigate();
@@ -42,7 +44,7 @@ export default function UpdatePainting() {
   };
 
   return (
-    <div className="app">
+    <div className="formContainer">
       <div className="form">
         <h1>Update Painting</h1>
 

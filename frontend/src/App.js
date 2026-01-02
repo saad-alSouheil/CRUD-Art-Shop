@@ -9,13 +9,13 @@ import Commission from "./Client/Commission";
 
 import AdminLayout from "./Admin/pages/AdminLayout";
 import AdminDashboard from "./Admin/pages/Dashboard";
-import MyPaintings from "./Admin/MyPaintings";
-import AddPainting from "./Admin/Add";
-import Update from "./Admin/Update";
-import BuyRequests from "./Admin/BRequests";
-import ComRequests from "./Admin/ComRequests";
+import MyPaintings from "./Admin/pages/MyPaintings";
+import AddPainting from "./Admin/components/Add";
+import Update from "./Admin/components/Update";
+import BuyRequests from "./Admin/pages/BRequests";
+import ComRequests from "./Admin/pages/ComRequests";
 
-import Login from "./components/Login";
+import Login from "./Admin/pages/Login";
 import Footer from "./components/Footer";
 
 function App() {

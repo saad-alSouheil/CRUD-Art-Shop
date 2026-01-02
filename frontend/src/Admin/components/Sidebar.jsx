@@ -1,9 +1,12 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
 import "../styles/Sidebar.scss";
-import DashboardIcon from '@mui/icons-material/Dashboard';
 import LogoutIcon from '@mui/icons-material/Logout';
-import FilterVintageIcon from '@mui/icons-material/FilterVintage';
+import SpaceDashboardIcon from '@mui/icons-material/SpaceDashboard';
+import PhotoFilterIcon from '@mui/icons-material/PhotoFilter';
+import LocalMallIcon from '@mui/icons-material/LocalMall';
+import DesignServicesIcon from '@mui/icons-material/DesignServices';
+
 
 export default function Sidebar(){
     return (
@@ -17,34 +20,38 @@ export default function Sidebar(){
                     <p className="title">MAIN</p>
                 <Link to="/adminDashboard">
                     <li>
-                    <DashboardIcon className='icon'/>
+                    <SpaceDashboardIcon className='icon'/>
                     <span>Dashboard</span>
                     </li>
                 </Link>
                 <Link to="/myPaintings">
                     <li>
-                    <FilterVintageIcon className='icon'/>
+                    <PhotoFilterIcon className='icon'/>
                     <span>My Paintings</span>
                     </li>
                 </Link>
                     <p className="title">REQUESTS</p>
-                <li>
+                <Link to="/buyRequests">
+                    <li>
+                    <LocalMallIcon className='icon'/>
                     <span>Buy Requests</span>
-                </li>
-                <li>
+                    </li>
+                </Link>
+                <Link to="/comRequests">
+                    <li>
+                    <DesignServicesIcon className='icon'/>
                     <span>Commission Requests</span>
-                </li>
+                    </li>
+                </Link>
                     <p className="title">USER</p>
-                <li>
+                <Link to="/admin">
+                    <li>
                     <LogoutIcon className="icon"/>
                     <span>Logout</span>
-                </li>
-                    <p className="title">COLOR THEME</p>
+                    </li>
+                </Link>
+                
             </ul>
-        </div>
-        <div className="bottom">
-            <div className="colorOption"></div>
-            <div className="colorOption"></div>
         </div>
     </div>
     )
