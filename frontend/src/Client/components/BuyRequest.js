@@ -29,10 +29,9 @@ export default function BuyRequest({ painting, onClose }) {
   return (
     <div className="modal-overlay" onClick={onClose}>
       <div className="modal-content-form" onClick={(e) => e.stopPropagation()}>
-        <button className="close-btn" onClick={onClose}>✕</button>
 
-        <h2>Buy Request</h2>
-        <p><strong>{painting.name}</strong></p>
+        <h2 className="header">Buy Request</h2>
+        <p><strong>{painting.name}</strong></p> <br></br>
 
         {success ? (
           <p className="success-msg">Request sent successfully</p>
@@ -60,7 +59,7 @@ export default function BuyRequest({ painting, onClose }) {
               onChange={(e) => setMessage(e.target.value)}
             />
 
-            <button type="submit">Send Request</button>
+            <button type="submit" className="submit-btn">Send Request</button>
           </form>
         )}
       </div>

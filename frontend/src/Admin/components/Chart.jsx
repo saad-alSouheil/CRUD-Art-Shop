@@ -35,7 +35,7 @@ function Chart() {
 
     return (
     <div className="chart">
-        <div className="title">Sales in the last four months</div>
+        <div className="chart-title">Sales in the last four months</div>
         <ResponsiveContainer width="100%" aspect={2 / 1}>
             <AreaChart
             width={730}

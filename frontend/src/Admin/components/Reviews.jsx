@@ -3,7 +3,7 @@ import "../styles/Reviews.scss";
 
 function Reviews() {
     return (
-        <div className='reviews'>Reviews</div>    
+        <div className='reviews1'>Reviews</div>    
     )
 }
 

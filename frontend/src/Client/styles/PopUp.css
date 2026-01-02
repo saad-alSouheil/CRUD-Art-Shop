@@ -9,6 +9,7 @@
   align-items: center;
   justify-content: center;
   z-index: 1000;
+
 }
 
 .modal-content-details {
@@ -16,7 +17,7 @@
   padding: 25px;
   width: 90%;
   max-width: 600px;
-  border-radius: 10px;
+  border-radius: 15px;
   position: relative;
   max-height: 90vh;
   overflow-y: auto;
@@ -30,6 +31,12 @@
   position: relative;
 }
 
+.header{
+  margin-bottom: 10px;
+  text-align: center;
+  color: gray;
+}
+
 .modal-content img {
   width: 100%;
   margin-top: 20px;
@@ -38,38 +45,34 @@
   margin-bottom: 15px;
 }
 
-.close-btn {
-  color: red;
-  position: absolute;
-  top: 10px;
-  right: 15px;
-  background: none;
-  border: none;
-  font-size: 20px;
-  cursor: pointer;
-}
-
 input, textarea {
   width: 90%;
+  font-size: 15px;
   margin-bottom: 12px;
-  padding: 10px;
+  padding: 10px 12px;
   border-radius: 6px;
   border: 1px solid #ccc;
 }
 
 textarea {
-  resize: none;
+  resize: vertical;
   height: 80px;
 }
 
-button {
-  width: 30%;
+.submit-btn {
+  display: block;
+  margin: 1rem auto 0;
   padding: 10px;
-  background-color: #67dc35ff;
+  background-color: #a184d8;
   border: none;
   color: white;
-  border-radius: 10px;
+  border-radius: 6px;
   cursor: pointer;
+}
+
+.submit-btn:hover{
+  background-color: #d184d8;
+
 }
 
 .success-msg {

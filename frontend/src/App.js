@@ -1,11 +1,12 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
-import ClientSide from "./Client/ClientSide";
-import Home from "./Client/Home";
-import About from "./Client/About";
-import Paintings from "./Client/Paintings";
-import Commission from "./Client/Commission";
+import ClientSide from "./Client/pages/ClientSide";
+import Home from "./Client/pages/Home";
+import About from "./Client/pages/About";
+import Paintings from "./Client/pages/Paintings";
+import Commission from "./Client/pages/Commission";
+import PostReview from "./Client/pages/PostReview";
 
 import AdminLayout from "./Admin/pages/AdminLayout";
 import AdminDashboard from "./Admin/pages/Dashboard";
@@ -16,7 +17,7 @@ import BuyRequests from "./Admin/pages/BRequests";
 import ComRequests from "./Admin/pages/ComRequests";
 
 import Login from "./Admin/pages/Login";
-import Footer from "./components/Footer";
+import Footer from "./Client/components/Footer";
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
           <Route path="/paintings" element={<Paintings/>}/>
           <Route path="/commission" element={<Commission/>}/>
           <Route path="/about" element={<About/>}/>
+          <Route path="/postReview" element={<PostReview/>}/>
         </Route>
         
         <Route path="/admin" element={<Login />} />

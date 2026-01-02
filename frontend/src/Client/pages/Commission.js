@@ -1,5 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
+import "../../Admin/styles/Form.scss";
 
 export default function Commission() {
   const [clientName, setClientName] = useState("");
@@ -27,9 +28,9 @@ export default function Commission() {
   };
 
   return (
-    <div>
-      <div>
-        <h2>Commission Request</h2>
+    <div className="formContainer">
+      <div className="form">
+        <h1>Make A Commission Request!</h1>
         {success ? (
           <p className="success-msg">Request sent successfully</p>
         ) : (

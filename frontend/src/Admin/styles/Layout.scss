@@ -1,7 +1,36 @@
-.home{
+.home {
     display: flex;
 
-    .homeContainer{
+    .homeContainer {
         flex: 6;
+    }
+}
+
+@media (max-width: 1024px) {
+    .home {
+        .homeContainer {
+        flex: 5;
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .home {
+        flex-direction: column;
+        
+        .homeContainer {
+        width: 100%;
+        flex: 4;
+        }
+    }
+}
+
+@media (max-width: 480px) {
+    .home {
+        padding: 10px;
+
+        .homeContainer {
+            padding: 10px;
+        }
     }
 }

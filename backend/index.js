@@ -67,7 +67,7 @@ app.delete("/delete/:id", (req, res) => {
 
     const filePath = `./pictures/${data1[0].picture}`;
     console.log(filePath);
-     fs.unlink(filePath, (err2) => {
+    fs.unlink(filePath, (err2) => {
       if (err1 || err2) {
         console.error('Error deleting file:', err1);
         return;
@@ -275,6 +275,31 @@ app.put("/commission-request/:id", (req, res) => {
     if (err) return res.status(500).json(err);
       return res.json({ success: true });
     });
+});
+
+//Reviews
+app.get("/reviews", (req, res) => {
+  const q = "SELECT * FROM reviews ORDER BY created_at DESC";
+  db.query(q, (err, data) => {
+    if (err) {
+      console.error("DB error:", err);
+      return res.status(500).json({ error: "Database error" });
+    }
+    return res.json(data);
+  });
+});
+
+app.post("/review", (req, res) => {
+  const id = req.body.id;
+  const name = req.body.name;
+  const comment = req.body.comment;
+
+  const q = "INSERT INTO reviews(`id`, `name`, `comment`) VALUES (?,?,?)";
+
+  db.query(q, [id,name,comment], (err, data) => {
+    if (err) return res.send(err);
+    return res.json(data);
+  });
 });
 
 app.listen(5000, () => {

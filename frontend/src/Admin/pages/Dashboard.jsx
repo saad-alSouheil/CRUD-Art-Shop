@@ -1,13 +1,13 @@
 import React from 'react'
 import Widget from '../components/Widget'
 import Chart from '../components/Chart';
-import Reviews from '../components/Reviews';
+import Reviews from '../../Client/components/Reviews';
 import BuyRequests from './BRequests';
 import "../styles/Dashboard.scss";
 
 const Dashboard = () => {
     return (
-        <div className="container">
+        <div className="dashboard">
             <div className="widgets">
                 <Widget type="paintings"/>
                 <Widget type="sales"/>
@@ -16,7 +16,10 @@ const Dashboard = () => {
 
             <div className="charts">
                 <Chart/>
-                <Reviews/>
+                <div className="recentRev">
+                    <div className="rtitle">Recent Reviews</div>
+                    <Reviews N={3}/>
+                </div>
             </div>
             <div className="tableContainer">
                 <div className="tableTitle">Recent Buy Requests</div>

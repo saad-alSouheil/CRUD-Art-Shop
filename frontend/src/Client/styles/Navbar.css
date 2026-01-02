@@ -1,0 +1,44 @@
+.navbar { 
+  background-color: #ffffff; 
+  padding: 30px 25px; 
+  display: flex; 
+  justify-content: space-between; 
+  align-items: center; 
+  box-shadow: 0px 0px 8px rgb(184, 181, 175); 
+} 
+
+h2{
+  color: #a184d8;
+  font-size: 30px;
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  margin-left: 30px;
+  padding: 0px;
+}
+
+.links a { 
+  color: black; 
+  margin-left: 15px; 
+  text-decoration: none; 
+  padding: 20px;
+} 
+
+.links :last-child{
+  color: white;
+  background-color: #a184d8;
+  border-radius: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.links a:hover { 
+  text-decoration:none; 
+  background-color: #a184d889;
+  border-radius: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.links a:last-child:hover{
+  color: white ;
+  background-color: #f2cdff;
+}

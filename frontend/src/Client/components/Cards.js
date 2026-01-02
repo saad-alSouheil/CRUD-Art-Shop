@@ -6,14 +6,12 @@ export default function PaintingCard({ name, price, image, onBuy, sold }) {
         alt={name}
         style={styles.image}
       />
-      <h3 style={styles.title}>{name}</h3>
-      <p style={styles.price}>${price}</p>
-    
+      <h3 style={styles.title}>{name}</h3>    
       <button 
         style={{ 
           margin: '5px', 
           padding: '10px 15px',
-          backgroundColor:sold? "gray" : '#67dc35ff',
+          backgroundColor:sold? "gray" : '#a184d8',
           color: 'white',
           border: 'none',
           borderRadius: '4px',
@@ -50,9 +48,4 @@ const styles = {
     fontSize: "18px",
     fontWeight: "600"
   },
-  price: {
-    fontSize: "16px",
-    color: "green",
-    fontWeight: "bold"
-  }
 };

@@ -7,21 +7,17 @@ export default function PaintingDetails({painting, onClose}) {
         className="modal-content-details"
         onClick={(e) => e.stopPropagation()}
       >
-        <button className="close-btn" onClick={onClose}>
-          ✕
-        </button>
-
         <img
             src={painting.picture ? `http://localhost:5000/pictures/${painting.picture}` : '/placeholder-image.jpg'}
             alt={painting.name}
             style={{ width: "100%", borderRadius: "8px", marginBottom: "15px" }}
         />
 
-        <h2>{painting.name}</h2>
+        <h2 className="header">{painting.name}</h2> <br/>
 
-        <p>{painting.description}</p>
+        <p>{painting.description}</p> <br/>
 
-        {painting.price && <p><strong>Price:</strong> ${painting.price}</p>}
+        {painting.price && <p><strong>Potential price:</strong> ${painting.price}</p>}
       </div>
     </div>
   );
