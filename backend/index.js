@@ -11,6 +11,8 @@ app.use(express.json());
 app.use('/pictures', express.static('pictures'));
 app.use(express.static('public'));
 
+const PORT = process.env.PORT || 5000;
+
 const storage = multer.diskStorage({
   destination: (req, res ,cb) => {
     cb(null, 'pictures/')
@@ -302,6 +304,5 @@ app.post("/review", (req, res) => {
   });
 });
 
-app.listen(5000, () => {
-  console.log("Connected to backend.");
-});
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+
