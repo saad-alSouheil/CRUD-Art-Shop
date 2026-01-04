@@ -2,18 +2,20 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Link } from "react-router-dom";
 
+//component:
 import Table from "../components/Table";
+
 import "../styles/Table.scss";
 
+//MUI icons:
 import Stack from "@mui/material/Stack";
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
-
 import AddIcon from "@mui/icons-material/Add";
+
 
 function MyPaintings ({rows}){
     const [paintings, setPaintings] = useState([]);
-    //const navigate = useNavigate();
 
     useEffect(() => {
         fetchPaintings();
@@ -33,10 +35,7 @@ function MyPaintings ({rows}){
         }
     };
 
-    /*const handleUpdate =() =>{
-        navigate(`/update/${paintings.pId}`)
-    }*/
-
+    //saving the paintings data from the db in "columns" to display using the "Table" component:
     const columns = [
         {
             field: "picture",

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import {Outlet} from "react-router-dom";
 import {Link} from "react-router-dom";
 
+//mui icon:
 import AutoAwesomeIcon from '@mui/icons-material/AutoAwesome';
 
 import "../styles/Navbar.css";

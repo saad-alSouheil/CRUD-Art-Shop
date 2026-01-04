@@ -1,5 +1,9 @@
+//This chart component id from Recharts
+
 import { useEffect, useState } from "react";
 import axios from "axios";
+
+//Rechart import for the chart:
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 
 import "../styles/Chart.scss";
@@ -20,6 +24,7 @@ function Chart() {
         }
     };
 
+    //function to get the months and its sales from the buy requests db table to use it in the chart:
     function salesInMonth(buyRequests) {
         return buyRequests
         .filter(req => req.status === "approved")

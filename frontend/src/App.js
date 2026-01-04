@@ -24,7 +24,7 @@ function App() {
   
     <Router>
       <Routes>
-
+        
         <Route element={<ClientSide />}>
           <Route path="/" element={<Home />} />
           <Route path="/paintings" element={<Paintings/>}/>

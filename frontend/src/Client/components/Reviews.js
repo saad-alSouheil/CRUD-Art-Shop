@@ -4,7 +4,6 @@ import axios from 'axios';
 function Reviews ({N}) {
     const [reviews, setReviews] = useState([]);
 
-
     useEffect(() => {
         const fetchAllReviews = async () => {
         try {

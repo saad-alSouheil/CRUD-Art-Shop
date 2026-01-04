@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+
 import "../styles/Widget.scss";
+
+//Icons from MUI:
 import PaidIcon from '@mui/icons-material/Paid';
 import DesignServicesIcon from '@mui/icons-material/DesignServices';
 import ColorLensIcon from '@mui/icons-material/ColorLens';
@@ -47,6 +50,7 @@ function Widget({type}){
         return total;
     }
     
+    //to decide what type of widget (paintings, sales, or commissions):
     let data;
 
     switch(type){

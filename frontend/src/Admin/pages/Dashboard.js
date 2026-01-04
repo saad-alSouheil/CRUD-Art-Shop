@@ -1,8 +1,12 @@
 import React from 'react'
+
+//components:
 import Widget from '../components/Widget'
 import Chart from '../components/Chart';
 import Reviews from '../../Client/components/Reviews';
 import BuyRequests from './BRequests';
+
+//style:
 import "../styles/Dashboard.scss";
 
 const Dashboard = () => {

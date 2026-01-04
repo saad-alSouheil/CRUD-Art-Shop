@@ -1,9 +1,12 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
+
+//icons from MUI:
 import Stack from "@mui/material/Stack";
 import CheckBoxIcon from "@mui/icons-material/CheckBox";
 import DisabledByDefaultRoundedIcon from "@mui/icons-material/DisabledByDefaultRounded";
 
+//component:
 import Table from "../components/Table";
 
 import "../styles/Table.scss";
@@ -26,6 +29,7 @@ function BRequests ({rows}){
         fetchRequests();
     };
 
+    //saving the buy requests data from the db in "columns" to display using the "Table" component:
     const columns = [
         {
             field: "painting_name",

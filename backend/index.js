@@ -6,7 +6,6 @@ import path from "path";
 import fs from "fs";
 
 const app = express();
-
 app.use(cors({
   origin: [
     "http://localhost:3000",
@@ -48,6 +47,7 @@ const db = mysql.createConnection({
   }
 });
 
+//for paintings:
 app.get("/paintings", (req, res) => {
   const q = "SELECT * FROM paintings";
   db.query(q, (err, data) => {

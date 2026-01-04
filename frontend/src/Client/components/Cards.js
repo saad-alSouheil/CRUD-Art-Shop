@@ -1,5 +1,7 @@
-export default function PaintingCard({ name, price, image, onBuy, sold }) {
+
+export default function PaintingCard({ name, image, onBuy, sold }) {
   return (
+
     <div style={styles.card}>
       <img 
         src={image? `${process.env.REACT_APP_API_URL}/pictures/${image}` : '/placeholder-image.jpg'}
@@ -26,6 +28,7 @@ export default function PaintingCard({ name, price, image, onBuy, sold }) {
   );
 }
 
+//style:
 const styles = {
   card: {
     width: "250px",

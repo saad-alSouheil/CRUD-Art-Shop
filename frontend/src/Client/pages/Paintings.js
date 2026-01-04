@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+
+//components:
 import PaintingCard from "../components/Cards";
 import PaintingDetails from "../components/PaintingDetails"
 import BuyRequest from "../components/BuyRequest";
@@ -66,6 +68,7 @@ export default function Paintings() {
   );
 }
 
+//style:
 const styles = {
   container: {
     display: "flex",

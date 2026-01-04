@@ -1,5 +1,8 @@
 import React from 'react';
+
+//component:
 import Reviews from '../components/Reviews';
+
 import '../styles/Home.css';
 
 function LandingPage () {

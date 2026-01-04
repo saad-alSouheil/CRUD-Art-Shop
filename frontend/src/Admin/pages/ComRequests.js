@@ -1,9 +1,12 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
+
+//mui imports:
 import Stack from "@mui/material/Stack";
 import CheckBoxIcon from "@mui/icons-material/CheckBox";
 import DisabledByDefaultRoundedIcon from "@mui/icons-material/DisabledByDefaultRounded";
 
+//used component:
 import Table from "../components/Table";
 
 import "../styles/Table.scss";
@@ -26,6 +29,7 @@ function ComRequests ({rows}){
         fetchRequests();
     };
 
+    //saving the commission requests data from the db in "columns" to display using the "Table" component:
     const columns = [
         {field: "client_name", header: "Client Name"},
         {field: "client_email", header: "E-mail"},

@@ -1,6 +1,9 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
+
 import "../styles/Sidebar.scss";
+
+//Icons from MUI:
 import LogoutIcon from '@mui/icons-material/Logout';
 import SpaceDashboardIcon from '@mui/icons-material/SpaceDashboard';
 import PhotoFilterIcon from '@mui/icons-material/PhotoFilter';

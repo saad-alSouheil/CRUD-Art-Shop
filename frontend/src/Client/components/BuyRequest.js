@@ -1,5 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
+
 import "../styles/PopUp.css";
 
 export default function BuyRequest({ painting, onClose }) {
