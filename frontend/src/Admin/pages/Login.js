@@ -50,6 +50,8 @@ export default function Login() {
         />
 
         <button onClick={handleLogin}>Login</button>
+
+        <p>username: admin / pass: for$Admin20</p>
       
       </div>
       
