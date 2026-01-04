@@ -21,7 +21,7 @@ function BasicTable({ data, columns, rows }) {
                 </TableHead>
 
                 <TableBody>
-                    {data.slice(0, rows).map((row) => (
+                    {Array.isArray(data) && data.slice(0, rows).map((row) => (
                     <TableRow key={row.id}>
                         {columns.map((col) => (
                         <TableCell key={col.field} className="tableCell">

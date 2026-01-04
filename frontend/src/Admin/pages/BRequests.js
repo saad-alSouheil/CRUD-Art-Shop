@@ -17,7 +17,7 @@ function BRequests ({rows}){
     }, []);
 
     const fetchRequests = async() => {
-        const res = await axios.get(`{process.env.REACT_APP_API_URL}/buy-requests`);
+        const res = await axios.get(`${process.env.REACT_APP_API_URL}/buy-requests`);
         setRequests(res.data);
     };
 
