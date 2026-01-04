@@ -13,7 +13,7 @@ export default function Commission() {
     e.preventDefault();
 
     try {
-      await axios.post("http://localhost:5000/commission-request", {
+      await axios.post(`${process.env.REACT_APP_API_URL}/commission-request`, {
         client_name: clientName,
         client_email: clientEmail,
         message,

@@ -8,7 +8,7 @@ function Reviews ({N}) {
     useEffect(() => {
         const fetchAllReviews = async () => {
         try {
-        const res = await axios.get("http://localhost:5000/reviews");
+        const res = await axios.get(`${process.env.REACT_APP_API_URL}/reviews`);
         console.log(res.data); 
         if (Array.isArray(res.data)) {
             setReviews(res.data);

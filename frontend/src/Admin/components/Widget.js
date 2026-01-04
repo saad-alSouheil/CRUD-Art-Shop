@@ -14,7 +14,7 @@ function Widget({type}){
     useEffect(() => {
         const fetchAllPaintings = async () => {
             try {
-                const res = await axios.get("http://localhost:5000/paintings");
+                const res = await axios.get(`${process.env.REACT_APP_API_URL}/paintings`);
                 if (Array.isArray(res.data)) setPaintings(res.data);
             } catch (err) {
             console.log(err);
@@ -27,7 +27,7 @@ function Widget({type}){
     useEffect(() => {
         const fetchAllRequests = async () => {
         try {
-            const res = await axios.get("http://localhost:5000/commission-requests");
+            const res = await axios.get(`${process.env.REACT_APP_API_URL}/commission-requests`);
             if (Array.isArray(res.data)) setRequests(res.data);
         } catch (err) {
             console.log(err);

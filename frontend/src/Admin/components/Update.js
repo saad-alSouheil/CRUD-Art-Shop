@@ -16,7 +16,7 @@ export default function UpdatePainting() {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/search/${id}`)
+      .get(`${process.env.REACT_APP_API_URL}/search/${id}`)
       .then((res) => {
         setName(res.data[0].name);
         setDescription(res.data[0].description)
@@ -35,7 +35,7 @@ export default function UpdatePainting() {
     formData.append("image", file); 
 
     try {
-      await axios.post(`http://localhost:5000/modify/${id}`, formData);
+      await axios.post(`${process.env.REACT_APP_API_URL}/modify/${id}`, formData);
       navigate("/mypaintings");
     } catch (err) {
       console.log(err);

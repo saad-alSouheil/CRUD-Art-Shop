@@ -17,12 +17,12 @@ function BRequests ({rows}){
     }, []);
 
     const fetchRequests = async() => {
-        const res = await axios.get("http://localhost:5000/buy-requests");
+        const res = await axios.get(`{process.env.REACT_APP_API_URL}/buy-requests`);
         setRequests(res.data);
     };
 
     const updateStatus = async (id, status) =>{
-        await axios.put(`http://localhost:5000/buy-request/${id}`, { status });
+        await axios.put(`${process.env.REACT_APP_API_URL}/buy-request/${id}`, { status });
         fetchRequests();
     };
 
@@ -32,7 +32,7 @@ function BRequests ({rows}){
             header: "Painting",
             render: (r) => (
                 <div className="cellWrapper">
-                    <img src={`http://localhost:5000/pictures/${r.picture}`} alt="" className="image" />
+                    <img src={`${process.env.REACT_APP_API_URL}/pictures/${r.picture}`} alt="" className="image" />
                     {r.painting_name}
                 </div>
             ),

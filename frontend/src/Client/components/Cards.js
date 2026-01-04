@@ -2,7 +2,7 @@ export default function PaintingCard({ name, price, image, onBuy, sold }) {
   return (
     <div style={styles.card}>
       <img 
-        src={image? `http://localhost:5000/pictures/${image}` : '/placeholder-image.jpg'}
+        src={image? `${process.env.REACT_APP_API_URL}/pictures/${image}` : '/placeholder-image.jpg'}
         alt={name}
         style={styles.image}
       />

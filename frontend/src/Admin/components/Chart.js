@@ -13,7 +13,7 @@ function Chart() {
 
     const fetchRequests = async () => {
         try {
-        const res = await axios.get("http://localhost:5000/buy-requests");
+        const res = await axios.get(`${process.env.REACT_APP_API_URL}/buy-requests`);
         setRequests(res.data);
         } catch (err) {
         console.error(err);

@@ -17,12 +17,12 @@ function ComRequests ({rows}){
     }, []);
 
     const fetchRequests = async() => {
-        const res = await axios.get("http://localhost:5000/commission-requests");
+        const res = await axios.get(`${process.env.REACT_APP_API_URL}/commission-requests`);
         setRequests(res.data);
     };
 
     const updateStatus = async (id, status) =>{
-        await axios.put(`http://localhost:5000/commission-request/${id}`, { status });
+        await axios.put(`${process.env.REACT_APP_API_URL}/commission-request/${id}`, { status });
         fetchRequests();
     };
 

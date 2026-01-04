@@ -12,7 +12,7 @@ export default function BuyRequest({ painting, onClose }) {
     e.preventDefault();
 
     try {
-      await axios.post("http://localhost:5000/buy-request", {
+      await axios.post(`${process.env.REACT_APP_API_URL}/buy-request`, {
         painting_id: painting.pId,
         buyer_name: buyerName,
         buyer_email: buyerEmail,

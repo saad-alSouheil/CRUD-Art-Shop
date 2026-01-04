@@ -33,7 +33,7 @@ export default function AddPainting() {
     formData.append("description", painting.description);
 
     try {
-      await axios.post("http://localhost:5000/create", formData);
+      await axios.post(`${process.env.REACT_APP_API_URL}/create`, formData);
       navigate("/mypaintings");
     } catch (err) {
       console.log(err);

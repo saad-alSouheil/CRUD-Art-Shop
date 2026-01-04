@@ -8,7 +8,7 @@ export default function PaintingDetails({painting, onClose}) {
         onClick={(e) => e.stopPropagation()}
       >
         <img
-            src={painting.picture ? `http://localhost:5000/pictures/${painting.picture}` : '/placeholder-image.jpg'}
+            src={painting.picture ? `${process.env.REACT_APP_API_URL}/pictures/${painting.picture}` : '/placeholder-image.jpg'}
             alt={painting.name}
             style={{ width: "100%", borderRadius: "8px", marginBottom: "15px" }}
         />

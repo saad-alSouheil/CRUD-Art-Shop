@@ -12,7 +12,7 @@ export default function Paintings() {
   useEffect(() => {
     const fetchAllPaintings = async () => {
       try {
-        const res = await axios.get("http://localhost:5000/paintings");
+        const res = await axios.get(`${process.env.REACT_APP_API_URL}/paintings`);
         console.log(res.data); 
         if (Array.isArray(res.data)) {
           setPaintings(res.data);

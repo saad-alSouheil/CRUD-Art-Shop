@@ -20,13 +20,13 @@ function MyPaintings ({rows}){
     }, []);
 
     const fetchPaintings = async() => {
-        const res = await axios.get("http://localhost:5000/paintings");
+        const res = await axios.get(`${process.env.REACT_APP_API_URL}/paintings`);
         setPaintings(res.data);
     };
 
     const handleDelete = async (id) => {
         try {
-            await axios.delete(`http://localhost:5000/delete/${id}`);
+            await axios.delete(`${process.env.REACT_APP_API_URL}/delete/${id}`);
             setPaintings(paintings.filter(p => p.pId !== id)); 
         } catch (err) {
             console.log(err);
@@ -45,7 +45,7 @@ function MyPaintings ({rows}){
                 <div>
                     {r.picture ? (
                         <img
-                        src={`http://localhost:5000/pictures/${r.picture}`}
+                        src={`${process.env.REACT_APP_API_URL}/pictures/${r.picture}`}
                         alt={r.name}
                         style={{ 
                             width: "200px", 

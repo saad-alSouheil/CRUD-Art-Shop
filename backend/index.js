@@ -6,8 +6,14 @@ import path from "path";
 import fs from "fs";
 
 const app = express();
-app.use(cors());
+
+app.use(cors({
+  origin: "http://localhost:3000",
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+  credentials: true
+}));
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 app.use('/pictures', express.static('pictures'));
 app.use(express.static('public'));
 
@@ -29,10 +35,11 @@ const upload = multer(
 )
 
 const db = mysql.createConnection({
-  host: "localhost",
-  user: "root",
-  password: "",
-  database: "artShop",
+  host: process.env.DB_HOST,
+  user: process.env.DB_USER,
+  password: process.env.DB_PASS,
+  database: process.env.DB_NAME,
+  port: process.env.DB_PORT,
 });
 
 app.get("/paintings", (req, res) => {
